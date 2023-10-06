@@ -6,35 +6,18 @@ import {
   SafeAreaView,
   Text,
   Alert,
-  Button
+  Button,
+  TouchableOpacity 
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './src/pages/HomeScreen';
+import NovoOkiyScreen from './src/pages/NovoOkiyScreen';
+import RegistOkiyScreen from './src/pages/RegistOkiyScreen';
+import EstatOkiyScreen from './src/pages/EstatOkiyScreen';
+import SobreOkiyScreen from './src/pages/SobreOkiyScreen';
 
-function HomeScreen(props) {
-  const { onPress, novo = 'NOVO OKIYOME' } = props;
 
-  return (
-    <SafeAreaView className="flex-1 justify-end mx-20 my-40">
-      <View className="tems-center justify-center bg-gray">
-        <View className="space-y-5">
-        <View >
-            <Button   title="NOVO OKIYOME" ></Button>
-          </View>
-            <View>
-            <Button  title="REGISTRO" ></Button>
-          </View>
-          <View>
-            <Button  title="ESTATÍSTICA" ></Button>
-          </View>
-          <View>
-            <Button  title="SOBRE" ></Button>
-          </View>
-          </View>
-      </View>
-    </SafeAreaView>
-  );
-}
 
 const Stack = createNativeStackNavigator();
 
@@ -49,21 +32,16 @@ export default function App() {
        screenOptions={{
         headerMode: 'screen',
         headerTintColor: 'white',
-        headerStyle: { backgroundColor: '#00a2ff' },
+        headerStyle: { backgroundColor: '#2563EB' },
               }}
         >
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Novo Okiyome" component={NovoOkiyScreen} />
+      <Stack.Screen name="Registro" component={RegistOkiyScreen} />
+      <Stack.Screen name="Estatística" component={EstatOkiyScreen} />
+      <Stack.Screen name="Sobre" component={SobreOkiyScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
